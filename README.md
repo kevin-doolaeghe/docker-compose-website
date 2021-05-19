@@ -19,7 +19,7 @@ cd back
 
 ```
 npm init
-npm install express mysql
+npm install express mysql cors
 touch index.js
 ```
 
