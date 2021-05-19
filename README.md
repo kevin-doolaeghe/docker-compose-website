@@ -15,6 +15,9 @@ sudo apt install node npm
 ```
 mkdir back
 cd back
+```
+
+```
 npm init
 npm install express mysql
 touch index.js
@@ -24,6 +27,11 @@ touch index.js
 
 ```
 npx create-react-app front
+cd front
+```
+
+```
+npm install axios
 ```
 
 * Démarrer en mode développement :
@@ -38,6 +46,9 @@ npm start
 ```
 cd front
 npm run build
+```
+
+```
 sudo npm install -g serve
 serve -s build
 ```
