@@ -1,4 +1,44 @@
-# Serveur Web (NodeJS / ReactJS / MySQL) fonctionnant sous Docker
+# Serveur Web (Node.js / React.js / MySQL) fonctionnant sous Docker
+
+## Développement Web
+
+### 1. Installation des paquets nécessaires
+
+```
+sudo apt install node npm
+```
+
+### 2. Backend - Node.js
+
+```
+mkdir back
+cd back
+npm init
+npm install express mysql
+touch index.js
+```
+
+### 3. Frontend - React.js
+
+```
+npx create-react-app front
+```
+
+* Démarrer en mode développement :
+
+```
+cd front
+npm start
+```
+
+* Déployer en production :
+
+```
+cd front
+npm run build
+sudo npm install -g serve
+serve -s build
+```
 
 ## `docker`
 
