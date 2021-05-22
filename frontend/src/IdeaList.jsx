@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Idea from "./Idea";
 import IdeaForm from "./IdeaForm";
 
-import "./styles.css";
+import "./style.css";
 import logo from "./logo.svg";
 
 class IdeaList extends Component {

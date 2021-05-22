@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./styles.css";
+import "./style.css";
 
 class IdeaForm extends Component {
   state = {
