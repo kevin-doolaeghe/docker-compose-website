@@ -6,4 +6,4 @@ app.use(cors());
 
 app.use(express.json());
 
-module.exports = { app: app, router: express.Router() };
+module.exports = { app, router: express.Router() };
