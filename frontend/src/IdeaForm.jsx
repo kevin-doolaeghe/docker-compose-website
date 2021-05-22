@@ -65,7 +65,7 @@ class IdeaForm extends Component {
           required
         />
         <br />
-        <label>Äuteur : </label>
+        <label>Auteur : </label>
         <input
           value={this.state.idea.firstname}
           onChange={this.handleFirstnameChange}
@@ -80,6 +80,7 @@ class IdeaForm extends Component {
           placeholder="Doe"
           required
         />
+        <br />
         <button>Confirmer</button>
       </form>
     );

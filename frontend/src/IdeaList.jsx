@@ -71,7 +71,6 @@ class IdeaList extends Component {
           ))}
         </div>
         <IdeaForm onIdeaAdd={this.postIdea} />
-        <img src={logo} className="App-logo" alt="logo" />
       </div>
     );
   }
