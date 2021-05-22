@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
 import './index.css';
+
+import IdeaList from './IdeaList';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <App />,
+  <IdeaList />,
   document.getElementById('root')
 );
 
