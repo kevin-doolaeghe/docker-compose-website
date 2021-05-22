@@ -7,7 +7,7 @@ services:
       context: backend
     command: npm run test
     environment:
-      - DATABASE_DB=database
+      - DATABASE_DB=base
       - DATABASE_USER=root
       - DATABASE_PASSWORD=/run/secrets/db-password
       - DATABASE_HOST=db
@@ -34,12 +34,12 @@ services:
     secrets:
       - db-password
     volumes:
-      - init.sql:/data/init.sql
+      - ./db/init.sql:/data/init.sql
       - db-data:/var/lib/mysql
     networks:
       - private
     environment:
-      - MYSQL_DATABASE=database
+      - MYSQL_DATABASE=base
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
   frontend:
     build:
