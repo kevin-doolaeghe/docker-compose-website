@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   backend:
+    container_name: website_backend
     build:
       args:
       - NODE_ENV=development
@@ -33,7 +34,7 @@ services:
     secrets:
       - db-password
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
       - db-data:/var/lib/mysql
     networks:
       - private
@@ -41,6 +42,7 @@ services:
       - MYSQL_DATABASE=base
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
   frontend:
+    container_name: website_frontend
     build:
       context: frontend
       target: development
