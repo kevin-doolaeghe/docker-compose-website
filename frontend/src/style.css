@@ -1,48 +1,48 @@
 .IdeaListApp {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: lightslategray;
-}
-
-.IdeaList {
-  font-family: sans-serif;
-  text-align: left;
-  margin: 3%;
-  border-top: 1px solid #000000ff;
-}
-
-.Idea {
-  font-family: sans-serif;
-  text-align: left;
-}
-
-.IdeaForm {
-  font-family: sans-serif;
-  margin-left: 5%;
-  margin-right: 5%;
-  padding: 2%;
-  background: #ddddddff;
-  border: 1px solid #00000000;
-  border-radius: 3px;
-  text-align: left;
-}
-
-textarea {
-  width: 80%;
-  height: 30%;
-  margin-bottom: 1%;
-}
-
-label {
-  align-content: left;
-  vertical-align: top;
-  margin: 2%;
-  font-weight: bold;
-}
-
-button {
-  display: flex;
-  align-content: flex-end;
-  padding: 2%;
-  cursor: pointer;
-}
+    font-family: sans-serif;
+    text-align: center;
+    background-color: lightslategray;
+  }
+  
+  .IdeaList {
+    font-family: sans-serif;
+    text-align: left;
+    margin: 3%;
+    border-top: 1px solid #000000ff;
+  }
+  
+  .Idea {
+    font-family: sans-serif;
+    text-align: left;
+  }
+  
+  .IdeaForm {
+    font-family: sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2%;
+    background: #ddddddff;
+    border: 1px solid #00000000;
+    border-radius: 3px;
+    text-align: left;
+  }
+  
+  textarea {
+    width: 80%;
+    height: 30%;
+    margin-bottom: 1%;
+  }
+  
+  label {
+    align-content: left;
+    vertical-align: top;
+    margin: 2%;
+    font-weight: bold;
+  }
+  
+  button {
+    display: flex;
+    align-content: flex-end;
+    padding: 2%;
+    cursor: pointer;
+  }
