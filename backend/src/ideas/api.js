@@ -1,59 +1,38 @@
 const database = require("../database");
 
 module.exports.getIdeas = (_, res) => {
-  database.query("SELECT * FROM ideas", (err, ideas) => {
-    if (err) console.log(err);
-    else res.send(ideas);
-  });
+  database('ideas').select().then(ideas => res.send(ideas)).catch(err => console.log(err));
 };
 
 module.exports.getIdea = (req, res) => {
   const id = req.params.id;
-  database.query("SELECT * FROM ideas WHERE id = ?", id, (err, idea) => {
-    if (err) console.log(err);
-    else res.send(idea);
-  });
+  database('ideas').select().where('id', id).then(ideas => res.send(ideas)).catch(err => console.log(err));
 };
 
 module.exports.postIdea = (req, res) => {
-  const title = req.body.title;
-  const content = req.body.content;
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
+  // const {title, content, firstname, lastname} = req.body;
+  const idea = req.body;
 
-  database.query(
-    "INSERT INTO ideas (title, content, firstname, lastname) VALUES (?,?,?,?)",
-    [title, content, firstname, lastname],
-    (err, res) => {
-      if (err) console.log(err);
-      else res.send(res);
-    }
-  );
+  database('ideas').insert(idea).then(result => res.send(result)).catch(err => console.log(err));
 };
 
 module.exports.putIdea = (req, res) => {
-  const title = req.body.title;
-  const content = req.body.content;
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
-
+  const idea = req.body;
   const id = req.params.id;
 
-  database.query(
-    "UPDATE ideas SET title = ?, content = ?, firstname = ?, lastname = ? WHERE id = ?",
-    [title, content, firstname, lastname, id],
-    (err, res) => {
-      if (err) console.log(err);
-      else res.send(res);
-    }
-  );
+  database('ideas')
+    .where('id', '=', id)
+    .update(idea)
+    .then(result => res.send(result))
+    .catch(err => console.log(err));
 };
 
 module.exports.deleteIdea = (req, res) => {
   const id = req.params.id;
 
-  database.query("DELETE FROM employees WHERE id = ?", id, (err, res) => {
-    if (err) console.log(err);
-    else res.send(res);
-  });
+  database('ideas')
+    .where('id', '=', id)
+    .delete()
+    .then(result => res.send(result))
+    .catch(err => console.log(err));
 };
