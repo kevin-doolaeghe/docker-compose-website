@@ -56,7 +56,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 7000:7000
+      - 9000:9000
     networks:
       - public
       - private
