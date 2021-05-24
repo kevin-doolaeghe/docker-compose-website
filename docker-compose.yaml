@@ -1,7 +1,5 @@
-version: "3.7"
 services:
   backend:
-    container_name: website_backend
     build:
       args:
       - NODE_ENV=development
@@ -28,13 +26,13 @@ services:
     depends_on:
       - db
   db:
-    image: mysql:8.0.19
-    command: '--default-authentication-plugin=mysql_native_password'
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     secrets:
       - db-password
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./db/setup.sql:/docker-entrypoint-initdb.d/setup.sql:ro
       - db-data:/var/lib/mysql
     networks:
       - private
@@ -42,7 +40,6 @@ services:
       - MYSQL_DATABASE=base
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
   frontend:
-    container_name: website_frontend
     build:
       context: frontend
       target: development
@@ -60,6 +57,9 @@ services:
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - public
+      - private
 networks:
   public:
   private:
