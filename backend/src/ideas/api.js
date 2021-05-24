@@ -4,7 +4,7 @@ module.exports.getIdeas = (_, res) => {
   database.query("SELECT * FROM ideas", (err, ideas) => {
     if (err) {
       console.log(err);
-      res.send(json({error: err}));
+      res.json({error: err});
     }
     else res.send(ideas);
   });
@@ -15,7 +15,7 @@ module.exports.getIdea = (req, res) => {
   database.query("SELECT * FROM ideas WHERE id = ?", id, (err, idea) => {
     if (err) {
       console.log(err);
-      res.send(json({error: err}));
+      res.json({error: err});
     }
     else res.send(idea);
   });
@@ -33,9 +33,9 @@ module.exports.postIdea = (req, res) => {
     (err, _) => {
       if (err) {
         console.log(err);
-        res.send(json({error: err}));
+        res.json({error: err});
       }
-      else res.send(json({result: `Idea \"${title}\" was inserted.`}));
+      else res.json({result: `Idea \"${title}\" was inserted.`});
     }
   );
 };
@@ -54,7 +54,7 @@ module.exports.putIdea = (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
-        res.send(json({error: err}));
+        res.json({error: err});
       }
       else res.send(result);
     }
@@ -67,7 +67,7 @@ module.exports.deleteIdea = (req, res) => {
   database.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
     if (err) {
       console.log(err);
-      res.send(json({error: err}));
+      res.json({error: err});
     }
     else res.send(result);
   });
