@@ -58,6 +58,7 @@ class IdeaList extends Component {
   }
 
   render() {
+    this.getIdea(1);
     this.getIdeas();
     const title = "Liste des idées";
 

@@ -6,10 +6,10 @@ services:
       context: backend
     command: npm run test
     environment:
+      - DATABASE_HOST=db
       - DATABASE_DB=base
       - DATABASE_USER=root
       - DATABASE_PASSWORD=/run/secrets/db-password
-      - DATABASE_HOST=db
       - NODE_ENV=development
     ports:
       - 80:80

@@ -56,7 +56,6 @@ class IdeaForm extends Component {
           placeholder="Apprendre React.js"
           required
         />
-        <br />
         <label>Idée : </label>
         <textarea
           className="content"
@@ -66,7 +65,6 @@ class IdeaForm extends Component {
           placeholder="..."
           required
         />
-        <br />
         <label>Auteur : </label>
         <input
           className="firstname"
@@ -84,7 +82,6 @@ class IdeaForm extends Component {
           placeholder="Doe"
           required
         />
-        <br />
         <button className="submit_button">Confirmer</button>
       </form>
     );
