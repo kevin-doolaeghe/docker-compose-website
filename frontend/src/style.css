@@ -41,9 +41,15 @@ label {
   font-weight: bold;
 }
 
-.title, .content {
+.title {
   grid-column: 2 / 4;
   padding: 5px;
+}
+
+.content {
+  grid-column: 2 / 4;
+  padding: 5px;
+  resize: vertical;
 }
 
 .firstname {
