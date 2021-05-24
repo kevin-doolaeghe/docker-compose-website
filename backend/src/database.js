@@ -3,7 +3,13 @@ const { database } = require('./config');
 
 console.log(database);
 const con = mysql.createConnection(database);
-con.connect(err => { if (err) throw err; });
+con.connect(err => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Connection to database established.');
+});
 
 module.exports = con;
 
