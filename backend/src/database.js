@@ -1,7 +1,11 @@
-const mysql = require("mysql");
+const mysql = require('mysql');
 const { database } = require('./config');
 
-module.exports = mysql.createConnection(database);
+console.log(database);
+const con = mysql.createConnection(database);
+con.connect(err => { if (err) throw err; });
+
+module.exports = con;
 
 /*
 const knex = require('knex');
