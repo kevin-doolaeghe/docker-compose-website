@@ -24,7 +24,7 @@
 
 .IdeaForm {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-left: 3%;
   margin-right: 3%;
@@ -47,18 +47,23 @@ label {
   vertical-align: top;
 }
 
-textarea {
+.title, .content {
+  grid-column: 2 / 4;
+  padding: 5px;
+}
+
+.firstname {
   grid-column: 2 / 3;
   padding: 5px;
 }
 
-input {
-  grid-column: 2 / 3;
+.firstname {
+  grid-column: 3 / 4;
   padding: 5px;
 }
 
-button {
-  grid-column: 2 / 3;
+.submit_button {
+  grid-column: 3 / 4;
   padding: 5px;
   cursor: pointer;
 }

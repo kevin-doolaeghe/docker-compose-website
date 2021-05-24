@@ -49,6 +49,7 @@ class IdeaForm extends Component {
       <form className="IdeaForm" onSubmit={this.handleSubmit}>
         <label>Titre : </label>
         <input
+          className="title"
           value={this.state.idea.title}
           onChange={this.handleTitleChange}
           type="text"
@@ -58,6 +59,7 @@ class IdeaForm extends Component {
         <br />
         <label>Idée : </label>
         <textarea
+          className="content"
           value={this.state.idea.content}
           onChange={this.handleContentChange}
           type="text"
@@ -67,6 +69,7 @@ class IdeaForm extends Component {
         <br />
         <label>Auteur : </label>
         <input
+          className="firstname"
           value={this.state.idea.firstname}
           onChange={this.handleFirstnameChange}
           type="text"
@@ -74,6 +77,7 @@ class IdeaForm extends Component {
           required
         />
         <input
+          className="lastname"
           value={this.state.idea.lastname}
           onChange={this.handleLastnameChange}
           type="text"
@@ -81,7 +85,7 @@ class IdeaForm extends Component {
           required
         />
         <br />
-        <button>Confirmer</button>
+        <button className="submit_button">Confirmer</button>
       </form>
     );
   }
