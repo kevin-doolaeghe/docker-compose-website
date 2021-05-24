@@ -4,7 +4,6 @@ import Idea from "./Idea";
 import IdeaForm from "./IdeaForm";
 
 import "./style.css";
-//import logo from "../public/logo.svg";
 
 class IdeaList extends Component {
   state = {
