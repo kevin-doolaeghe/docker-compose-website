@@ -1,4 +1,4 @@
-const database = require("../database");
+const database = require('../database');
 
 module.exports.getIdeas = (_, res) => {
   database('ideas').select().then(ideas => res.send(ideas)).catch(err => console.log(err));

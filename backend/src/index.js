@@ -1,5 +1,5 @@
-const { app, router } = require("./server");
-const { port } = require("./config");
+const { app, router } = require('./server');
+const { port } = require('./config');
 
 require('./ideas/router')(router);
 app.use('/', router);
@@ -7,18 +7,18 @@ app.use('/', router);
 const server = app.listen(port, () => console.log(`Express running → PORT ${server.address().port}`));
 
 // SIGINT on Ctrl+C interruption
-process.on("SIGINT", () => {
+process.on('SIGINT', () => {
   console.info(
-    "SIGINT: shutting down node app ",
+    'SIGINT: shutting down node app ',
     new Date().toISOString()
   );
   shutdown();
 });
 
 // SIGTERM on Docker stop
-process.on("SIGTERM", () => {
+process.on('SIGTERM', () => {
   console.info(
-    "SIGTERM: shutting down node app ",
+    'SIGTERM: shutting down node app ',
     new Date().toISOString()
   );
   shutdown();
