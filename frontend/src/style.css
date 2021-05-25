@@ -3,7 +3,7 @@
   padding: 5%;
   font-family: sans-serif;
   text-align: center;
-  background-color: lightslategray;
+  background-color: aliceblue;
 }
 
 .IdeaList {
@@ -14,7 +14,7 @@
 }
 
 .Idea {
-  padding: 3%;
+  padding: 10px;
   font-family: sans-serif;
   text-align: left;
 }
