@@ -3,7 +3,7 @@
   padding: 5%;
   font-family: sans-serif;
   text-align: center;
-  background-color: aliceblue;
+  background-color: lightslategrey;
 }
 
 .IdeaList {
@@ -16,6 +16,7 @@
 .Idea {
   padding: 10px;
   font-family: sans-serif;
+  background: aliceblue;
   text-align: left;
 }
 
@@ -28,7 +29,7 @@
   font-family: sans-serif;
   text-align: left;
   overflow: hidden;
-  background: #ddddddff;
+  background: silver;
   border: 1px solid #00000000;
   border-radius: 3px;
 }
@@ -65,6 +66,9 @@ label {
 
 .submit_button {
   grid-column: 3 / 4;
+}
+
+button {
   padding: 5px;
   cursor: pointer;
 }
