@@ -1,32 +1,41 @@
-const { app, router } = require('./server');
-const { port } = require('./config');
+const app = require("./server");
+const { port } = require("./config");
 
-require('./ideas/router')(router);
-app.use('/', router);
+const server = app.listen(port, function() {
+  console.log("Webserver is ready");
+});
 
-const server = app.listen(port, () => console.log(`Express running → PORT ${server.address().port}`));
+//
+// need this in docker container to properly exit since node doesn't handle SIGINT/SIGTERM
+// this also won't work on using npm start since:
+// https://github.com/npm/npm/issues/4603
+// https://github.com/npm/npm/pull/10868
+// https://github.com/RisingStack/kubernetes-graceful-shutdown-example/blob/master/src/index.js
+// if you want to use npm then start with `docker run --init` to help, but I still don't think it's
+// a graceful shutdown of node process
+//
 
-// SIGINT on Ctrl+C interruption
-process.on('SIGINT', () => {
+// quit on ctrl-c when running docker in terminal
+process.on("SIGINT", function onSigint() {
   console.info(
-    'SIGINT: shutting down node app ',
+    "Got SIGINT (aka ctrl-c in docker). Graceful shutdown ",
     new Date().toISOString()
   );
   shutdown();
 });
 
-// SIGTERM on Docker stop
-process.on('SIGTERM', () => {
+// quit properly on docker stop
+process.on("SIGTERM", function onSigterm() {
   console.info(
-    'SIGTERM: shutting down node app ',
+    "Got SIGTERM (docker container stop). Graceful shutdown ",
     new Date().toISOString()
   );
   shutdown();
 });
 
-// Shut down server
+// shut down server
 function shutdown() {
-  server.close((err) => {
+  server.close(function onServerClosed(err) {
     if (err) {
       console.error(err);
       process.exit(1);
@@ -34,3 +43,6 @@ function shutdown() {
     process.exit(0);
   });
 }
+//
+// need above in docker container to properly exit
+//
