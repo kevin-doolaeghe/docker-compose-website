@@ -31,6 +31,6 @@ module.exports.deleteIdea = (req, res) => {
   database('ideas')
     .where('id', '=', id)
     .delete()
-    .then(() => res.send(id))
+    .then(() => res.json(id))
     .catch(err => console.log(err));
 };

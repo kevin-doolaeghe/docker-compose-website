@@ -8,23 +8,20 @@ import "./style.css";
 class IdeaList extends Component {
   constructor(props) {
     super(props);
-    this.state = [];
+    this.state = { ideas: [] };
   }
 
   getIdeas = () => {
     fetch("/api/ideas")
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        this.setState(res.ideas);
-      })
+      .then(res => this.setState({ ideas: res }))
       .catch(console.error);
   };
 
   getIdea = (id) => {
     fetch(`/api/ideas/${id}`)
       .then(res => res.json())
-      .then(res => console.log(res.ideas))
+      .then(res => console.log(res))
       .catch(console.error);
   };
 
@@ -70,7 +67,7 @@ class IdeaList extends Component {
         <h1>{title}</h1>
         <div className="IdeaList">
           {
-            this.state && this.state.length > 0
+            this.state.ideas && this.state.ideas.length > 0
               ? this.state.ideas.map(idea => <Idea key={idea.id} details={idea} />)
               : "La liste est vide."
           }
