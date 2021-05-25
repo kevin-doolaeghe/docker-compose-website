@@ -10,10 +10,8 @@ module.exports.getIdea = (req, res) => {
 };
 
 module.exports.postIdea = (req, res) => {
-  // const {title, content, firstname, lastname} = req.body;
   const idea = req.body;
-
-  database('ideas').insert(idea).then(result => res.send(result)).catch(err => console.log(err));
+  database('ideas').insert(idea).then(() => res.send(idea)).catch(err => console.log(err));
 };
 
 module.exports.putIdea = (req, res) => {
@@ -23,7 +21,7 @@ module.exports.putIdea = (req, res) => {
   database('ideas')
     .where('id', '=', id)
     .update(idea)
-    .then(result => res.send(result))
+    .then(() => res.send(idea))
     .catch(err => console.log(err));
 };
 
@@ -33,6 +31,6 @@ module.exports.deleteIdea = (req, res) => {
   database('ideas')
     .where('id', '=', id)
     .delete()
-    .then(result => res.send(result))
+    .then(() => res.send(id))
     .catch(err => console.log(err));
 };
