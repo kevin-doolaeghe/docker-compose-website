@@ -34,7 +34,6 @@ class IdeaForm extends Component {
 
     const idea = { ...this.state };
     this.props.onIdeaAdd(idea);
-    console.log(idea);
 
     this.setState({
       title: "",

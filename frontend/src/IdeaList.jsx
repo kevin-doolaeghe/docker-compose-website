@@ -8,13 +8,16 @@ import "./style.css";
 class IdeaList extends Component {
   constructor(props) {
     super(props);
-    this.state = { ideas: [] };
+    this.state = [];
   }
 
   getIdeas = () => {
     fetch("/api/ideas")
       .then(res => res.json())
-      .then(res => this.setState({ideas: res.ideas}))
+      .then(res => {
+        console.log(res);
+        this.setState(res.ideas);
+      })
       .catch(console.error);
   };
 
@@ -31,8 +34,6 @@ class IdeaList extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(idea)
     };
-
-    console.log(JSON.stringify(idea));
 
     fetch("/api/ideas", requestOptions)
       .then(response => response.json());

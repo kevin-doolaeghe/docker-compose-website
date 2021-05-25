@@ -8,7 +8,8 @@
 
 .IdeaList {
   font-family: sans-serif;
-  text-align: left;
+  text-align: center;
+  padding: 10px;
   border-top: 1px solid #000000ff;
 }
 
