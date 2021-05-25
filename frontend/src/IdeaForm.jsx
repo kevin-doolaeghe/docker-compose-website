@@ -3,45 +3,44 @@ import React, { Component } from "react";
 import "./style.css";
 
 class IdeaForm extends Component {
-  state = {
-    idea: {
+  constructor(props) {
+    super(props);
+    this.state = {
       title: "",
       content: "",
       firstname: "",
       lastname: ""
-    }
-  };
+    };
+  }
 
   handleTitleChange = (event) => {
-    this.setState({ idea: { title: event.currentTarget.value } });
+    this.setState({ title: event.currentTarget.value });
   };
 
   handleContentChange = (event) => {
-    this.setState({ idea: { content: event.currentTarget.value } });
+    this.setState({ content: event.currentTarget.value });
   };
 
   handleFirstnameChange = (event) => {
-    this.setState({ idea: { firstname: event.currentTarget.value } });
+    this.setState({ firstname: event.currentTarget.value });
   };
 
   handleLastnameChange = (event) => {
-    this.setState({ idea: { lastname: event.currentTarget.value } });
+    this.setState({ lastname: event.currentTarget.value });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const idea = this.state.idea;
+    const idea = { ...this.state };
     this.props.onIdeaAdd(idea);
     console.log(idea);
 
     this.setState({
-      idea: {
-        title: "",
-        content: "",
-        firstname: "",
-        lastname: ""
-      }
+      title: "",
+      content: "",
+      firstname: "",
+      lastname: ""
     });
   };
 
@@ -51,7 +50,7 @@ class IdeaForm extends Component {
         <label>Titre : </label>
         <input
           className="title"
-          value={this.state.idea.title}
+          value={this.state.title}
           onChange={this.handleTitleChange}
           type="text"
           placeholder="Apprendre React.js"
@@ -60,7 +59,7 @@ class IdeaForm extends Component {
         <label>Idée : </label>
         <textarea
           className="content"
-          value={this.state.idea.content}
+          value={this.state.content}
           onChange={this.handleContentChange}
           type="text"
           placeholder="..."
@@ -69,7 +68,7 @@ class IdeaForm extends Component {
         <label>Auteur : </label>
         <input
           className="firstname"
-          value={this.state.idea.firstname}
+          value={this.state.firstname}
           onChange={this.handleFirstnameChange}
           type="text"
           placeholder="John"
@@ -77,7 +76,7 @@ class IdeaForm extends Component {
         />
         <input
           className="lastname"
-          value={this.state.idea.lastname}
+          value={this.state.lastname}
           onChange={this.handleLastnameChange}
           type="text"
           placeholder="Doe"

@@ -6,9 +6,10 @@ import IdeaForm from "./IdeaForm";
 import "./style.css";
 
 class IdeaList extends Component {
-  state = {
-    ideas: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = { ideas: [] };
+  }
 
   getIdeas = () => {
     fetch("/api/ideas")
@@ -30,6 +31,8 @@ class IdeaList extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(idea)
     };
+
+    console.log(JSON.stringify(idea));
 
     fetch("/api/ideas", requestOptions)
       .then(response => response.json());
@@ -65,9 +68,11 @@ class IdeaList extends Component {
       <div className="IdeaListApp">
         <h1>{title}</h1>
         <div className="IdeaList">
-          {this.state.ideas.map((idea) => (
-            <Idea key={idea.id} details={idea} />
-          ))}
+          {
+            this.state && this.state.length > 0
+              ? this.state.ideas.map(idea => <Idea key={idea.id} details={idea} />)
+              : "La liste est vide."
+          }
         </div>
         <IdeaForm onIdeaAdd={this.postIdea} />
       </div>
