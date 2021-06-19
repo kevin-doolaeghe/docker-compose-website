@@ -1,7 +1,5 @@
 # Serveur Web (Node.js / React.js / MySQL) fonctionnant sous Docker
 
-- - - - -
-
 ## Développement Web
 
 ### 1. Installation des paquets nécessaires
@@ -60,6 +58,8 @@ serve -s build
 ```
 sudo apt install docker.io
 ```
+
+- - - - -
 
 ## `docker-compose`
 
