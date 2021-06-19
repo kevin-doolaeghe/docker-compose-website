@@ -150,6 +150,12 @@ docker-compose stop
 docker-compose rm
 ```
 
+* Détruire les images :
+
+```
+docker-compose rmi
+```
+
 * Afficher les images crées :
 
 ```
