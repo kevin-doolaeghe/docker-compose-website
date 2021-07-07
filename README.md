@@ -87,7 +87,7 @@ Tester l'installation :
 docker-compose --version
 ```
 
-### 2. Utilisation
+### 2. Configuration
 
 Les containers de l'applicatif à créer sont décrit dans le fichier `docker-compose.yml` :
 
@@ -109,6 +109,8 @@ services:
   redis:
     image: "redis:alpine"
 ```
+
+### 3. Utilisation
 
 * Créer & démarrer les services :
 
