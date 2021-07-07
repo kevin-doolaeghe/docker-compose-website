@@ -59,9 +59,7 @@ sudo npm install -g serve
 serve -s build
 ```
 
-- - - - -
-
-## Intégration avec `docker-compose`
+## Intégration avec docker-compose
 
 ### 1. Installation
 
