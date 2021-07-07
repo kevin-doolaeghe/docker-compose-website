@@ -2,7 +2,7 @@
 
 ## Développement Web
 
-### 1. Installation des paquets nécessaires
+### 1. Installation de Node.js et du gestionnaire de paquets NPM
 
 ```
 sudo apt install node npm
@@ -10,10 +10,14 @@ sudo apt install node npm
 
 ### 2. Backend - Node.js
 
+Création du répertoire de développement :
+
 ```
 mkdir back
 cd back
 ```
+
+Initialisation du projet :
 
 ```
 npm init
@@ -23,10 +27,14 @@ touch index.js
 
 ### 3. Frontend - React.js
 
+Initialisation de l'application React :
+
 ```
 npx create-react-app front
 cd front
 ```
+
+Ajout du client HTTP Axios pour consommer des API :
 
 ```
 npm install axios
@@ -53,15 +61,7 @@ serve -s build
 
 - - - - -
 
-## `docker`
-
-```
-sudo apt install docker.io
-```
-
-- - - - -
-
-## `docker-compose`
+## Intégration avec `docker-compose`
 
 ### 1. Installation
 
@@ -96,6 +96,10 @@ Les containers de l'applicatif à créer sont décrit dans le fichier `docker-co
 ```
 sudo nano docker-compose.yml
 ```
+
+La configuration ci-dessous permet de créer deux conteneurs :
+- `web` : construit à partir du fichier Dockerfile présent dans le répertoire actuel
+- `redis` : une machine `alpine` issue de Docker Hub
 
 ```
 version: "3.9"
